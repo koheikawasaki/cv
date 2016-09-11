@@ -1,0 +1,182 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+							
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	\textheight=700px                    % Saving trees ;-)
+\usepackage{url}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{Black}{%
+			\parbox{6em}{%
+			\hfill\color{White}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{Black}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Kohei Kawasaki}
+\MySlogan{Curriculum Vitae}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+
+\PersonalEntry{Birth}{August 27, 1990}
+\PersonalEntry{Address}{1-19-28, Oojigaoka, Otsu, Shiga, 520-0025}
+\PersonalEntry{Phone}{+81 (070) 4427-6642}
+\PersonalEntry{Mail}{\url{nwcntyrcrm@gmail.com}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{Master's Degree in Physics}{2014 - 2017}{Kobe University, Japan}{Main subjects: Development THz range ESR system for high pressure conditions, Master’s degree in Physics GPA 3.86, Poster presentation at Physical society of Japan 2014 fall, Oral presentation at JPS 2015 spring, Poster presentation at APES-IES-SEST international symposium}
+
+\EducationEntry{Exchange student in College of Science and Engineering}{2015 - 2016}{University of Minnesota Twin cities, US}{Major in Computer Science.}
+
+\EducationEntry{Bachelor’s degree in Physics}{2010 - 2014}{Kobe University, Japan}{}
+
+\sepspace
+
+%%% EXTRACURRICULAR ACTIVITY
+%%% ------------------------------------------------------------
+\NewPart{EXTRACURRICULAR ACTIVITY}{}
+\EducationEntry{Brown - Kobe joint summer school }{2016}{Brown University, US and Kobe University, Japan}{2 weeks project based summer school between Kobe and Brown University. Our theme is learning a particle filter for neural decoding}
+
+\EducationEntry{HPC simulation summer school }{2016}{Riken Advanced Institute for Computer Science}{Intensive summer school course for High performance computing}
+
+\EducationEntry{Rocket team}{2015-2016}{University of Minnesota Twin cities, US}{ to be added}
+
+\EducationEntry{Figure skating club team}{2010-2014}{Kobe University, Japan}{officiating as captain as a Junior Achieved first place in Inter-collegiate divi- sion C Ice dance}
+
+\sepspace
+
+%%% EXTRACURRICULAR ACTIVITY
+%%% ------------------------------------------------------------
+\NewPart{EXTRACURRICULAR ACTIVITY}{}
+K. Kawasaki, T. Sakurai, E. Ohmichi, S. Okubo, H. Ohta, K. Matsubayashi, and Y. Uwatoko.
+"Development of High-Pressure ESR System Using Microcoil"
+Applied Magnetic Resonance. 46: 987- 992(2015)
+H. Ohta, T. Sakurai, R. Matsui, K. Kawasaki, Y. Hirao, S. Okubo, K. Matsubayashi,
+Y. Uwatoko, K. Kudo, and Y. Koike.
+“Frequency Extension to the THz Range in the High Pressure ESR System and Its Application to the Shastry–Sutherland Model Compound SrCu2(BO3)2”
+Journal of Physical Chemistry B. 119(43): 13755– 13761 (2015)
+T. Sakurai, R. Matsui, K. Kawasaki, S. Okubo, H. Ohta, K. Matsubayashi, Y. Uwatoko, K. Kudo, and Y. Koike. Applied Magnetic Resonance. 46: 1007-1012
+“Development of High-Pressure and Multi- Frequency ESR System and Its Applica- tion to Quantum Spin System”
+Applied Magnetic Resonance. 46: 1007-1012(2015)
+\sepspace
+%%% RESEARCH PAPERS
+%%% ------------------------------------------------------------
+\NewPart{INTERNSHIP EXPERIENCE}{}
+\EducationEntry{Apple watch Apps Development}{2015}{DWANGO Co., ltd, Tokyo, Japan}{Design and development of AppleWatch Applications that interacts with niconico. Engaged in creating new Apple watch and iOS apps. The development was very fast paced, lasting 5 days. Used Xcode7-beta, iOS9-beta, watchOS2-beta and swift 2. Tackling of bugs of beta version and finally made Heartbeat game(including multi-peer connectivity that allows connection be- tween several Apple devices).}
+
+\EducationEntry{Project Design and Apps Development}{2015}{Hanshin Metallics Corp, Kobe,Japan}{Engaged in startup the new department in this company. Developed system of hydroponic culture managed by smart phone (iOS). Engaged in building of electric circuit (including BLE) and coded to manage it by smart phone by swift and objective-c.}
+
+
+\sepspace
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+\SkillsEntry{Languages}{Japanese (mother tongue)}
+\SkillsEntry{}{English (fluent), TOEFL 85(1/16/2015)}
+\SkillsEntry{OS}{\textsc{Mac OSX}, \textsc{Ubuntu} \textsc{Windows}}
+\SkillsEntry{Programming}{\textsc{Python}, \textsc{C}, \textsc{C++}, \textsc{OCaml, Swift, Clisp, Java}}
+\SkillsEntry{Software}{\textsc{Matlab}, \LaTeX, \textsc{Labview}, \textsc{AutoCAD}}
+
+%%% Student Volunteer
+%%% ------------------------------------------------------------
+\NewPart{Student Volunteer for Comference}{}
+\EducationEntry{Excursion guide in international symposium}{2014}{APES-SEST-IES, Nara, Japan}{Organised excursion guide when my lab hosted an international symposium. Introduced Horyu Temple in Nara ( Japanese historical prefecture ) and a sake brewery to 80 guests from all over the world. Received several letters of appreciation for well organised excursion.}
+{Other Attended Conference about Computer science}
+{International Conference on Functional Programming}
+{CES2016}{2016}
+{LinuxCon North America}{2015}
+
+\end{document}
