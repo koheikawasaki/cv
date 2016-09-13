@@ -22,7 +22,7 @@
 % http://en.wikibooks.org/wiki/LaTeX
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+\documentclass[paper=a4,fontsize=12pt]{scrartcl} % KOMA-article class
 							
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -33,7 +33,12 @@
 \usepackage{geometry}
 	\textheight=700px                    % Saving trees ;-)
 \usepackage{url}
+\usepackage{xcolor}
 
+\RequirePackage{xcolor}
+\definecolor{pumpkin}{rgb}{1.0, 0.46, 0.09}
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+\definecolor{darkjunglegreen}{rgb}{0.1, 0.14, 0.13}
 \frenchspacing              % Better looking spacings after periods
 \pagestyle{empty}           % No pagenumbers/headers/footers
 
@@ -44,6 +49,8 @@
 \sectionfont{%			            % Change font of \section command
 	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
 	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+	
+% Fake text to add separator      
 
 %%% Macros
 %%% ------------------------------------------------------------
@@ -59,7 +66,7 @@
 		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
 		\par \normalsize \normalfont}
 
-\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+\newcommand{\NewPart}[1]{\section*{\color{darkjunglegreen}\uppercase{#1}}}
 
 \newcommand{\PersonalEntry}[2]{
 		\noindent\hangindent=2em\hangafter=0 % Indentation
@@ -75,16 +82,27 @@
 		
 \newcommand{\EducationEntry}[4]{
 		\noindent \textbf{#1} \hfill      % Study
-		\colorbox{Black}{%
+		\colorbox{gray}{%
 			\parbox{6em}{%
 			\hfill\color{White}#2}} \par  % Duration
-		\noindent \textit{#3} \par        % School
-		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\hfill\color{pumpkin}{#3} \par        % School
+		\noindent\color{arsenic}\hangindent=2em\hangafter=0 \small #4 % Description
 		\normalsize \par}
-
+\newcommand{\EduShortEntry}[3]{
+		\noindent\textbf{#1} \hfill      % Study
+		\colorbox{gray}{%
+			\parbox{6em}{%
+			\hfill\color{White}#2}} \par  % Duration
+		\hfill\color{pumpkin}{#3} \color{darkjunglegreen}\par        % School
+		}
+\newcommand{\ConfEntry}[2]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{gray}{%
+			\parbox{6em}{%
+			\hfill\color{White}#2}}}
 \newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
 		\noindent \textbf{#1} \hfill      % Jobname
-		\colorbox{Black}{\color{White}#2} \par  % Duration
+		\colorbox{gray}{\color{White}#2} \par  % Duration
 		\noindent \textit{#3} \par              % Company
 		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
 		\normalsize \par}
@@ -99,10 +117,6 @@
 %\end{wrapfigure}
 
 \MyName{Kohei Kawasaki}
-\MySlogan{Curriculum Vitae}
-
-\sepspace
-
 %%% Personal details
 %%% ------------------------------------------------------------
 \NewPart{Personal details}{}
@@ -114,15 +128,14 @@
 
 %%% Education
 %%% ------------------------------------------------------------
-\NewPart{Education}{}
+\NewPart{Education}
 
 \EducationEntry{Master's Degree in Physics}{2014 - 2017}{Kobe University, Japan}{Main subjects: Development THz range ESR system for high pressure conditions, Master’s degree in Physics GPA 3.86, Poster presentation at Physical society of Japan 2014 fall, Oral presentation at JPS 2015 spring, Poster presentation at APES-IES-SEST international symposium}
 
 \EducationEntry{Exchange student in College of Science and Engineering}{2015 - 2016}{University of Minnesota Twin cities, US}{Major in Computer Science.}
 
-\EducationEntry{Bachelor’s degree in Physics}{2010 - 2014}{Kobe University, Japan}{}
+\EduShortEntry{Bachelor’s degree in Physics}{2010 - 2014}{Kobe University, Japan}
 
-\sepspace
 
 %%% EXTRACURRICULAR ACTIVITY
 %%% ------------------------------------------------------------
@@ -131,26 +144,23 @@
 
 \EducationEntry{HPC simulation summer school }{2016}{Riken Advanced Institute for Computer Science}{Intensive summer school course for High performance computing}
 
-\EducationEntry{Rocket team}{2015-2016}{University of Minnesota Twin cities, US}{ to be added}
+\EducationEntry{Rocket team}{2015-2016}{University of Minnesota Twin cities, US}{Works at computing for control Rocket for the MSCG competition}
 
-\EducationEntry{Figure skating club team}{2010-2014}{Kobe University, Japan}{officiating as captain as a Junior Achieved first place in Inter-collegiate divi- sion C Ice dance}
+\EducationEntry{Figure skating club team}{2010-2014}{Kobe University, Japan}{officiating as captain as a Junior Achieved first place in Inter-collegiate division C Ice dance}
 
-\sepspace
 
 %%% EXTRACURRICULAR ACTIVITY
 %%% ------------------------------------------------------------
-\NewPart{EXTRACURRICULAR ACTIVITY}{}
+\NewPart{research ACTIVITY}{}
 K. Kawasaki, T. Sakurai, E. Ohmichi, S. Okubo, H. Ohta, K. Matsubayashi, and Y. Uwatoko.
 "Development of High-Pressure ESR System Using Microcoil"
-Applied Magnetic Resonance. 46: 987- 992(2015)
-H. Ohta, T. Sakurai, R. Matsui, K. Kawasaki, Y. Hirao, S. Okubo, K. Matsubayashi,
-Y. Uwatoko, K. Kudo, and Y. Koike.
-“Frequency Extension to the THz Range in the High Pressure ESR System and Its Application to the Shastry–Sutherland Model Compound SrCu2(BO3)2”
-Journal of Physical Chemistry B. 119(43): 13755– 13761 (2015)
+Applied Magnetic Resonance. 46: 987- 992(2015)\\
+H. Ohta, T. Sakurai, R. Matsui, K. Kawasaki, Y. Hirao, S. Okubo, K. Matsubayashi, Y. Uwatoko, K. Kudo, and Y. Koike. “Frequency Extension to the THz Range in the High Pressure ESR System and Its Application to the Shastry–Sutherland Model Compound SrCu2(BO3)2”
+Journal of Physical Chemistry B. 119(43): 13755– 13761 (2015)\\
 T. Sakurai, R. Matsui, K. Kawasaki, S. Okubo, H. Ohta, K. Matsubayashi, Y. Uwatoko, K. Kudo, and Y. Koike. Applied Magnetic Resonance. 46: 1007-1012
 “Development of High-Pressure and Multi- Frequency ESR System and Its Applica- tion to Quantum Spin System”
 Applied Magnetic Resonance. 46: 1007-1012(2015)
-\sepspace
+
 %%% RESEARCH PAPERS
 %%% ------------------------------------------------------------
 \NewPart{INTERNSHIP EXPERIENCE}{}
@@ -159,7 +169,6 @@ Applied Magnetic Resonance. 46: 1007-1012(2015)
 \EducationEntry{Project Design and Apps Development}{2015}{Hanshin Metallics Corp, Kobe,Japan}{Engaged in startup the new department in this company. Developed system of hydroponic culture managed by smart phone (iOS). Engaged in building of electric circuit (including BLE) and coded to manage it by smart phone by swift and objective-c.}
 
 
-\sepspace
 %%% Skills
 %%% ------------------------------------------------------------
 \NewPart{Skills}{}
@@ -174,9 +183,9 @@ Applied Magnetic Resonance. 46: 1007-1012(2015)
 %%% ------------------------------------------------------------
 \NewPart{Student Volunteer for Comference}{}
 \EducationEntry{Excursion guide in international symposium}{2014}{APES-SEST-IES, Nara, Japan}{Organised excursion guide when my lab hosted an international symposium. Introduced Horyu Temple in Nara ( Japanese historical prefecture ) and a sake brewery to 80 guests from all over the world. Received several letters of appreciation for well organised excursion.}
-{Other Attended Conference about Computer science}
-{International Conference on Functional Programming}
-{CES2016}{2016}
-{LinuxCon North America}{2015}
+\ConfEntry{International Conference on Functional Programming}{2016}\\
+\ConfEntry{CES}{2016}\\
+\ConfEntry{LinuxCon North America}{2015}
+
 
 \end{document}
